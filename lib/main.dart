@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:owala_app/Views/onboarding/auth/login_screen.dart';
 import 'package:owala_app/utils/consts.dart';
 import 'package:owala_app/views/onboarding/onboarding_screen.dart';
 
@@ -20,14 +21,20 @@ class _OwalaAppState extends State<OwalaApp> {
       debugShowCheckedModeBanner: false,
       title: "Owala App",
       theme: ThemeData(
-        fontFamily: "Plus Jakarta Sans",
-        visualDensity: VisualDensity.adaptivePlatformDensity, // untuk mengatur kepadatan di setiap platform (biar dia responsive di setiap platform)
+        fontFamily: 'Plus Jakarta Sans', 
+        visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: TextTheme(
           bodyMedium: TextStyle(color: textColor),
-          bodySmall: TextStyle(color: textColor),
-        )
+          bodySmall: TextStyle(color: textColor)
+        ), // mengatur kepadatan di setiap platform
+        scaffoldBackgroundColor: Colors.white
       ),
-      home: OnboardingScreen(),
+      // untuk mendefinisikan kelas apa yang akan tampil pertama kali saat app di jalankan
+      initialRoute: '/login',
+      routes: {
+        '/onboarding' :(context) => OnboardingScreen(),
+        '/login' :(context) => LoginScreen(),
+      },
     );
   }
 }
